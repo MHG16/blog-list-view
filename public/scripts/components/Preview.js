@@ -1,4 +1,4 @@
-import Backbone from 'backbone';
+import React from 'react';
 
 const Preview = React.createClass({
 	render: function() {

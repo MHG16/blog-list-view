@@ -1,4 +1,4 @@
-import Backbone from 'backbone';
+import React from 'react';
 import PostCollection from '../collections/PostCollection.js';
 import Preview from './Preview.js';
 
@@ -26,10 +26,17 @@ const BlogPostList = React.createClass({
 			return <Preview title={value.get('title')} firstName={value.get('firstName')} lastName={value.get('lastName')} createdAt={value.get('createdAt')} body={value.get('body')} />;
 
 		});
-
+		return (
+			<section>
+				{postItemElements} 
+			</section>
+			);
 	}
 
 });
 
 
 export default BlogPostList;  
+
+
+
