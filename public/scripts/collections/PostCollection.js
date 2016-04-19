@@ -1,5 +1,5 @@
 import Backbone from 'backbone';
-import PostModel from './models/PostModel.js';
+import PostModel from '../models/PostModel.js';
 
 export default Backbone.Collection.extend({
  	models: PostModel,

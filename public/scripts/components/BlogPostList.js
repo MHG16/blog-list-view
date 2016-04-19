@@ -1,6 +1,6 @@
 import Backbone from 'backbone';
-import PostCollection from './collections/PostCollection.js';
-
+import PostCollection from '../collections/PostCollection.js';
+import Preview from './Preview.js';
 
 const BlogPostList = React.createClass({
 	getIntialState: function() {
@@ -8,22 +8,28 @@ const BlogPostList = React.createClass({
 		console.log('this.state');
 		let posts = new PostCollection();
 		return {
-			thing: posts 
+			things: posts 
 		};
 
 	}, 
 	componentDidMount: function() {
 		this.state.thing.on('update', () => {
-			
-			
-		} 
+			this.setState({
+				thing: this.state.things
+			});
+
+		}); 
+		this.state.things.fetch();
+	},
+	render: function () {
+		let postItemElements = this.state.thing.map((val, index, array)=> {
+			return <Preview title={value.get('title')} firstName={value.get('firstName')} lastName={value.get('lastName')} createdAt={value.get('createdAt')} body={value.get('body')} />;
+
+		});
 
 	}
 
-
 });
-
-
 
 
 export default BlogPostList;  
