@@ -5,7 +5,10 @@ export default Backbone.Model.extend({
 		id: '',
 		title: '',
 		body: '',
-		author: {},
+		author: {
+			firstName: '',
+			lastName: ''
+		},
 		createdAt: '',
 		updatedAt: ''
 

@@ -6,29 +6,39 @@ const BlogPostList = React.createClass({
 	getIntialState: function() {
 		console.log('getIntialState');
 		console.log('this.state');
-		let posts = new PostCollection();
+		let newposts = new PostCollection();
 		return {
-			things: posts 
+			post: newposts 
 		};
 
 	}, 
 	componentDidMount: function() {
-		this.state.thing.on('update', () => {
+		console.log('componentDidMount');
+		console.log(this.state);
+		this.state.post.on('update', () => {
+			console.log('update');
+			console.log('this.state');
 			this.setState({
-				thing: this.state.things
+				post: this.state.post.models  
 			});
 
 		}); 
-		this.state.things.fetch();
+		this.state.post.fetch();
 	},
 	render: function () {
-		let postItemElements = this.state.thing.map((val, index, array)=> {
-			return <Preview title={value.get('title')} firstName={value.get('firstName')} lastName={value.get('lastName')} createdAt={value.get('createdAt')} body={value.get('body')} />;
+		console.log('render');
+		console.log('this.state');
+		let postItems = this.state.post.map((val, index, array)=> {
+			return <Preview title={val.get('title')} 
+							firstName={val.get('author'.firstName)}
+						    lastName={val.get('author').lastName} 
+						    createdAt={val.get('createdAt')} 
+						    body={val.get('body')} />;
 
 		});
 		return (
 			<section>
-				{postItemElements} 
+				{postItems} 
 			</section>
 			);
 	}
