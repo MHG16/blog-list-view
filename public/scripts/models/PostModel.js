@@ -14,7 +14,7 @@ export default Backbone.Model.extend({
 
 	},
 
-	urlRoot: 'http://localhost:3000/api/v1/post',
+	rootUrl: 'http://localhost:3000/api/v1/post',
 	idAttribute: 'id'
 
 });

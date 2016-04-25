@@ -7,5 +7,4 @@ const PostCollection = Backbone.Collection.extend({
 
 });
  
-let postcollection = new PostCollection();
-export default postcollection;
+export default PostCollection;
